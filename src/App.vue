@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import CellList from "./components/CellList.vue";
 import Sidebar from "./components/Sidebar.vue";
-import Skeleton from "./components/Skeleton.vue";
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import Skeleton from "./components/Skeleton.vue";
     <main class="main"><CellList /></main>
     <footer class="footer">
       <div class="footer__body">
-        <Skeleton class="footer__skeleton" type="xl" />
+        <USkeleton class="footer__skeleton" type="xl" />
       </div>
       <button class="footer__btn">
         <img
