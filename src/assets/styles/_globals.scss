@@ -21,10 +21,10 @@ a {
 }
 
 .container {
-  max-width: 815px;
+  // max-width: 815px;
+  max-width: 1230px;
+  min-height: 100vh;
   padding-inline: 15px;
   margin-inline: auto;
-  height: 100vh;
   padding-block: 32px;
-  background-color: rgba(218, 165, 32, 0.414);
 }
