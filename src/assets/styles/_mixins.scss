@@ -7,3 +7,10 @@
   }
   gap: $gap;
 }
+
+
+@mixin block {
+  background-color: var(--color-dark-alt);
+  border-radius: var(--border-radius-block);
+  border: var(--border);
+}
