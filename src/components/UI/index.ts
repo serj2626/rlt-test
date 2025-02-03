@@ -1,0 +1,20 @@
+import type { App } from "vue";
+import Button from "./Button.vue";
+import Input from "./Input.vue";
+import Modal from "./Modal.vue";
+import Skeleton from "./Skeleton.vue";
+
+const components = [
+  { name: "UButton", component: Button },
+  { name: "UModal", component: Modal },
+  { name: "UInput", component: Input },
+  { name: "USkeleton", component: Skeleton },
+];
+
+export default {
+  install(app: App) {
+    components.forEach(({ name, component }) => {
+      app.component(name, component);
+    });
+  },
+};
