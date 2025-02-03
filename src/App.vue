@@ -6,9 +6,11 @@ import Skeleton from "./components/Skeleton.vue";
 <template>
   <div class="app container">
     <Sidebar />
-    <main class="main">main</main>
+    <main class="main"></main>
     <footer class="footer">
-      <Skeleton />
+      <div class="footer__body">
+        <Skeleton type="xl" />
+      </div>
     </footer>
   </div>
 </template>
@@ -37,5 +39,15 @@ import Skeleton from "./components/Skeleton.vue";
 .footer {
   grid-area: footer;
   @include block;
+
+  &__body {
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 14px;
+  }
 }
 </style>
