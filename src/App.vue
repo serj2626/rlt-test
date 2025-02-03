@@ -1,10 +1,15 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Sidebar from "./components/Sidebar.vue";
+import Skeleton from "./components/Skeleton.vue";
+</script>
 
 <template>
   <div class="app container">
-    <aside class="sidebar">sidebar</aside>
+    <Sidebar />
     <main class="main">main</main>
-    <footer class="footer">footer</footer>
+    <footer class="footer">
+      <Skeleton />
+    </footer>
   </div>
 </template>
 
@@ -12,22 +17,25 @@
 .app {
   display: grid;
   grid-template-columns: 236px 1fr;
-  grid-template-rows: 1fr 72px;
+  grid-template-rows: auto 72px;
   gap: 24px;
   grid-template-areas:
     "sidebar main"
     "footer footer";
 }
-.sidebar {
-  grid-area: sidebar;
-  background-color: lightgreen;
+
+@mixin block {
+  background-color: var(--color-dark-alt);
+  border-radius: var(--border-radius-block);
+  border: var(--border);
 }
+
 .main {
   grid-area: main;
-  background-color: lightyellow;
+  @include block;
 }
 .footer {
   grid-area: footer;
-  background-color: lightskyblue;
+  @include block;
 }
 </style>
