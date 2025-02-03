@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import CellList from "./components/CellList.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Skeleton from "./components/Skeleton.vue";
 </script>
@@ -6,11 +7,21 @@ import Skeleton from "./components/Skeleton.vue";
 <template>
   <div class="app container">
     <Sidebar />
-    <main class="main"></main>
+    <main class="main"><CellList /></main>
     <footer class="footer">
       <div class="footer__body">
-        <Skeleton type="xl" />
+        <Skeleton class="footer__skeleton" type="xl" />
       </div>
+      <button class="footer__btn">
+        <img
+          width="12"
+          height="12"
+          class="footer__btn-icon"
+          src="./assets/icons/close.svg"
+          alt="footer__btn-icon"
+          loading="lazy"
+        />
+      </button>
     </footer>
   </div>
 </template>
@@ -39,15 +50,20 @@ import Skeleton from "./components/Skeleton.vue";
 .footer {
   grid-area: footer;
   @include block;
+  position: relative;
 
   &__body {
     height: 100%;
-    position: relative;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-inline: 14px;
   }
+}
+
+.footer__btn {
+  position: absolute;
+  right: 14px;
+  top: 14px;
 }
 </style>
