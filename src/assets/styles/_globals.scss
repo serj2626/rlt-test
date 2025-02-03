@@ -4,6 +4,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: var(--color-bg);
 }
 
 h1,
@@ -20,7 +21,7 @@ a {
 }
 
 .container {
-  max-width: 1310px;
+  max-width: 815px;
   padding-inline: 15px;
   margin-inline: auto;
 }
