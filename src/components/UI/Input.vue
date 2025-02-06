@@ -6,14 +6,17 @@
 
 <style lang="scss" scoped>
 .input {
-  &:placeholder {
+  background-color: var(--color-dark-alt);
+  border-radius: var(--border-radius-input);
+  border: var(--border);
+  padding-block: 11px 12px;
+  padding-left: 12px;
+  color: var(--color-white);
+
+  &::placeholder {
     font-size: 14px;
     font-weight: 500;
-    color: var(--color-white);
-    padding-block: 11px 12px;
-    padding-left: 12px;
-    border: var(--border);
-    border-radius: var(--border-radius-input);
+    opacity: 0.4;
   }
 }
 </style>
