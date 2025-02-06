@@ -17,11 +17,10 @@ defineProps<{
           loading="lazy"
         />
       </div>
-      <div class="horizontal-line"></div>
 
       <div class="modal__main">
-        <USkeleton type="2xl" />
-        <div class="skeleton__list skeleton__list_padding">
+        <USkeleton type="2xl" class="modal__skeleton modal__skeleton_padding" />
+        <div class="skeleton__list">
           <USkeleton type="sm" marginX="20" />
           <USkeleton type="sm" marginX="20" />
           <USkeleton type="sm" marginX="20" />
@@ -29,11 +28,11 @@ defineProps<{
           <USkeleton type="sm" marginX="86" />
         </div>
       </div>
-      <div class="horizontal-line"></div>
+
       <div class="modal__footer">
         <UButton class="modal__btn" color="red">Удалить предмет</UButton>
       </div>
-      <UButton view="close" class="btn-close_position" />
+      <UButton view="close" class="modal__btn-close btn-close_position" />
     </div>
   </div>
 </template>
@@ -53,11 +52,15 @@ defineProps<{
 }
 .modal__body {
   position: relative;
+  padding-inline: 15px;
 }
 .modal__top {
   padding-top: 55px;
-  padding-block: 45px;
-  padding-inline: 15px;
+  padding-bottom: 30px;
+  border-bottom: var(--border);
+}
+.modal__skeleton_padding {
+  margin-bottom: 24px;
 }
 .modal__img {
   width: 130px;
@@ -66,24 +69,17 @@ defineProps<{
 }
 
 .modal__main {
-  padding-inline: 15px;
-}
-.skeleton__list_padding {
-  padding-block: 24px;
+  padding-top: 16px;
+  padding-bottom: 24px;
 }
 
 .modal__footer {
-  padding-inline: 15px;
   padding-block: 18px;
+  border-top: var(--border);
 }
 
 .modal__btn {
   width: 100%;
   padding-block: 11px;
-}
-
-.horizontal-line {
-  height: 1px;
-  background-color: var(-color-border);
 }
 </style>
