@@ -35,10 +35,4 @@ import Sidebar from "./components/Sidebar.vue";
   grid-area: main;
   @include block;
 }
-
-.footer {
-  grid-area: footer;
-  @include block;
-  position: relative;
-}
 </style>
