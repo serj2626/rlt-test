@@ -4,4 +4,10 @@
 @import "globals";
 @import "mixins";
 
-@import "blocks/sidebar", "blocks/skeleton", "blocks/cell", "blocks/footer";
+@import 
+    "blocks/sidebar", 
+    "blocks/skeleton", 
+    "blocks/cell", 
+    "blocks/footer", 
+    "blocks/button",
+    "blocks/modal";
