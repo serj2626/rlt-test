@@ -9,7 +9,6 @@ import Sidebar from "./components/Sidebar.vue";
     <Sidebar />
     <main>
       <CellList />
-      <UModal />
     </main>
     <Footer />
   </div>
