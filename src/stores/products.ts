@@ -8,11 +8,10 @@ export interface IProduct {
   count: number;
   color: "green" | "blue" | "peru";
   status: string;
+  cellId?: number;
 }
 
 export const useProductStore = defineStore("product", () => {
-  // STATE
-
   const products = ref<IProduct[]>([
     {
       id: 1,
@@ -20,6 +19,7 @@ export const useProductStore = defineStore("product", () => {
       count: 4,
       color: "green",
       status: "",
+      cellId: 1,
     },
     {
       id: 2,
@@ -27,6 +27,7 @@ export const useProductStore = defineStore("product", () => {
       count: 2,
       color: "peru",
       status: "",
+      cellId: 2,
     },
     {
       id: 3,
@@ -34,12 +35,9 @@ export const useProductStore = defineStore("product", () => {
       count: 5,
       color: "blue",
       status: "",
+      cellId: 3,
     },
   ]);
-
-  // GETTER
-
-  // SETTER
 
   return { products };
 });
