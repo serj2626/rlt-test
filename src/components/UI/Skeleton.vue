@@ -3,7 +3,7 @@ import { computed } from "vue";
 
 interface IPops {
   type: "sm" | "md" | "xl" | "2xl";
-  marginX?: number;
+  marginX?: string;
 }
 
 const props = defineProps<IPops>();
@@ -11,7 +11,7 @@ const props = defineProps<IPops>();
 const style = computed(() => {
   if (props.marginX) {
     return {
-      marginInline: `${props.marginX - 14}px`,
+      marginInline: `${+props.marginX - 14}px`,
     };
   } else {
     return {
