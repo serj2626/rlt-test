@@ -1,5 +1,7 @@
-@use "reset";
-@use "fonts";
-@use "vars";
-@use "globals";
-@use "mixins";
+@import "reset";
+@import "fonts";
+@import "vars";
+@import "globals";
+@import "mixins";
+
+@import "blocks/sidebar", "blocks/skeleton", "blocks/cell", "blocks/footer";
