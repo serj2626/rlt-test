@@ -7,34 +7,10 @@ import Sidebar from "./components/Sidebar.vue";
 <template>
   <div class="app container">
     <Sidebar />
-    <main class="main">
+    <main>
       <CellList />
       <UModal />
     </main>
     <Footer />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.app {
-  display: grid;
-  grid-template-columns: 236px 1fr;
-  grid-template-rows: 500px 72px;
-  gap: 24px;
-  grid-template-areas:
-    "sidebar main"
-    "footer footer";
-}
-
-@mixin block {
-  background-color: var(--color-dark-alt);
-  border-radius: var(--border-radius-block);
-  border: var(--border);
-}
-
-.main {
-  grid-area: main;
-  @include block;
-  position: relative;
-}
-</style>
