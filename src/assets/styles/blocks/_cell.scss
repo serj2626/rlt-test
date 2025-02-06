@@ -1,0 +1,6 @@
+.cell-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-radius: var(--border-radius-block);
+  }
+  
