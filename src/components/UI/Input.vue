@@ -3,23 +3,3 @@
 <template>
   <input type="search" class="input" placeholder="Введите количество" />
 </template>
-
-<style lang="scss" scoped>
-.input {
-  background-color: var(--color-dark-alt);
-  border-radius: var(--border-radius-input);
-  border: var(--border);
-  padding-block: 11px 12px;
-  padding-left: 12px;
-  color: var(--color-white);
-  outline: none;
-
-  &::placeholder {
-    font-size: 14px;
-    font-weight: 500;
-    opacity: 0.4;
-  }
-
-  
-}
-</style>
