@@ -4,7 +4,7 @@
   <div class="footer__body">
     <USkeleton class="footer__skeleton" type="xl" />
   </div>
-  <button class="footer__btn">
+  <!-- <button class="footer__btn">
     <img
       width="12"
       height="12"
@@ -13,21 +13,5 @@
       alt="footer__btn-icon"
       loading="lazy"
     />
-  </button>
+  </button> -->
 </template>
-
-<style lang="scss" scoped>
-.footer__body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-inline: 14px;
-}
-
-.footer__btn {
-  position: absolute;
-  right: 14px;
-  top: 14px;
-}
-</style>
