@@ -1,0 +1,36 @@
+.skeleton__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton {
+  $paddingX: 14px;
+  // margin-inline: 23px - $paddingX;
+  background: linear-gradient(45deg, #3c3c3c 0%, #444444 51%, #333333 100%);
+  border-radius: var(--border-radius-btn);
+
+  &_bottom {
+    margin-bottom: 24px;
+  }
+
+  &_top {
+    margin-top: 24px;
+  }
+
+  &_sm {
+    height: 10px;
+  }
+
+  &_md {
+    height: 26px;
+  }
+
+  &_xl {
+    height: 36px;
+  }
+  
+  &_2xl {
+    height: 30px;
+  }
+}

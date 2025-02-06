@@ -1,0 +1,16 @@
+.sidebar {
+  grid-area: sidebar;
+  @include block;
+  padding: 18px 14px 24px;
+}
+
+.sidebar__img {
+  border-radius: var(--border-radius-btn);
+  backdrop-filter: blur(12px);
+  margin: 0;
+}
+
+.sidebar__body {
+  padding-top: 20px;
+  height: 50px;
+}
