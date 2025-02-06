@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-bg);
+  cursor: url("../icons/cursor.svg"), auto;
 }
 
 h1,
@@ -21,8 +22,8 @@ a {
 }
 
 .container {
-  // max-width: 815px;
-  max-width: 1230px;
+  max-width: 815px;
+  // max-width: 1230px;
   min-height: 100vh;
   padding-inline: 15px;
   margin-inline: auto;
