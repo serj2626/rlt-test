@@ -2,11 +2,11 @@ import { computed, ref } from "vue";
 
 import { defineStore } from "pinia";
 
-interface IProduct {
+export interface IProduct {
   id: number;
   name: string;
   count: number;
-  color: string;
+  color: "green" | "blue" | "peru";
   status: string;
 }
 
