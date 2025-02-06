@@ -12,8 +12,18 @@
   padding-inline: 18px 68px;
 }
 
-//   .footer__btn {
-//     position: absolute;
-//     right: 14px;
-//     top: 14px;
-//   }
+  .footer__btn {
+    position: absolute;
+    right: 6px;
+    top: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 24px;
+    transition: var(--transition-base);
+
+    &:hover {
+      color: var(--color-red);
+      scale: 1.2;
+    }
+  }
