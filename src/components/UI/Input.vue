@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <input type="text" class="input" placeholder="Введите количество" />
+  <input type="search" class="input" placeholder="Введите количество" />
 </template>
 
 <style lang="scss" scoped>
@@ -12,11 +12,14 @@
   padding-block: 11px 12px;
   padding-left: 12px;
   color: var(--color-white);
+  outline: none;
 
   &::placeholder {
     font-size: 14px;
     font-weight: 500;
     opacity: 0.4;
   }
+
+  
 }
 </style>
