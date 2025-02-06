@@ -30,56 +30,9 @@ defineProps<{
       </div>
 
       <div class="modal__footer">
-        <UButton class="modal__btn" color="red">Удалить предмет</UButton>
+        <UButton class="modal__btn" view="action" color="red">Удалить предмет</UButton>
       </div>
       <UButton view="close" class="modal__btn-close btn-close_position" />
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  background-color: var(--color-dark-alt);
-  border: var(--border);
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-}
-.modal__body {
-  position: relative;
-  padding-inline: 15px;
-}
-.modal__top {
-  padding-top: 55px;
-  padding-bottom: 30px;
-  border-bottom: var(--border);
-}
-.modal__skeleton_padding {
-  margin-bottom: 24px;
-}
-.modal__img {
-  width: 130px;
-  height: 130px;
-  margin-inline: auto;
-}
-
-.modal__main {
-  padding-top: 16px;
-  padding-bottom: 24px;
-}
-
-.modal__footer {
-  padding-block: 18px;
-  border-top: var(--border);
-}
-
-.modal__btn {
-  width: 100%;
-  padding-block: 11px;
-}
-</style>
