@@ -1,0 +1,42 @@
+.btn {
+    border: none;
+    display: inline-block;
+    border-radius: var(--border-radius-btn);
+    transition: var(--transition-base);
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  
+    &_white {
+      background-color: var(--color-white);
+      color: var(--color-text-dark);
+      font-size: 14px;
+    }
+  
+    &_red {
+      background-color: var(--color-red);
+      color: var(--color-white);
+      font-size: 14px;
+    }
+  }
+  
+  .btn-close {
+    background-color: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 24px;
+    transition: var(--transition-base);
+  
+    &:hover {
+      color: var(--color-red);
+      scale: 1.1;
+      rotate: 40deg;
+    }
+  
+    &_position {
+      position: absolute;
+      right: 6px;
+      top: 0;
+    }
+  }
