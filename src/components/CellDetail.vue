@@ -2,14 +2,14 @@
 import type { IProduct } from "@/stores/products";
 
 defineProps<{
-  product: IProduct;
+  product?: IProduct;
 }>();
 </script>
 
 <template>
   <li class="cell">
-    <div :class="{ [`cell_${product.color}`]: product.color }"></div>
-    <div :class="{ [`cell_${product.color}-top`]: product.color }"></div>
+    <div :class="{ [`cell_${product?.color}`]: product?.color }"></div>
+    <div :class="{ [`cell_${product?.color}-top`]: product?.color }"></div>
   </li>
 </template>
 
