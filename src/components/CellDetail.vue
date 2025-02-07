@@ -7,6 +7,7 @@ defineProps<{
 
 const emit = defineEmits<{
   (e: "dragProduct", item: IProduct): void;
+  (e: "selectProduct", item: IProduct): void;
 }>();
 
 function dragOnstart(event: DragEvent, item: IProduct) {
@@ -21,6 +22,7 @@ function dragOnstart(event: DragEvent, item: IProduct) {
 <template>
   <div
     v-if="product"
+    @click="emit('selectProduct', product)"
     class="cell__draggable"
     draggable="true"
     @dragstart="dragOnstart($event, product)"
