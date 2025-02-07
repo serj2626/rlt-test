@@ -1,14 +1,19 @@
 .modal {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
 
   background-color: var(--color-dark-alt);
   border: var(--border);
   width: 250px;
   display: flex;
   flex-direction: column;
+
+  animation-name: shoeModalRight;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+
 }
 .modal__body {
   position: relative;
@@ -41,4 +46,13 @@
 .modal__btn {
   width: 100%;
   padding-block: 11px;
+}
+
+@keyframes shoeModalRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
