@@ -6,13 +6,14 @@ import CellDetail from "./CellDetail.vue";
 
 const store = useProductStore();
 const { products } = storeToRefs(store);
-const { updateCellId } = store;
+const { updateCellId, saveProductsToLocalStorage } = store;
 const cells = ref([...Array(25).keys()].map((x) => x + 1));
 
 function onDrop(event: DragEvent, cellId: number) {
   if (event.dataTransfer) {
     const itemId = parseInt(JSON.parse(event.dataTransfer.getData("itemId")));
     updateCellId(itemId, cellId);
+    saveProductsToLocalStorage();
   }
 }
 </script>
