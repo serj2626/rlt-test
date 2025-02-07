@@ -33,19 +33,3 @@ function onDrop(event: DragEvent, cellId: number) {
     </div>
   </section>
 </template>
-
-<style>
-.products {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-radius: var(--border-radius-block);
-  overflow: hidden;
-}
-
-.cell {
-  position: relative;
-  width: 100%;
-  height: 100px;
-  border: var(--border);
-}
-</style>
