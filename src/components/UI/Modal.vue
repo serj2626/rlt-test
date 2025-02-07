@@ -4,6 +4,10 @@ import type { IProduct } from "@/stores/products";
 defineProps<{
   product: IProduct;
 }>();
+
+const emit = defineEmits<{
+  (e: "close"): void;
+}>();
 </script>
 
 <template>
@@ -30,9 +34,15 @@ defineProps<{
       </div>
 
       <div class="modal__footer">
-        <UButton class="modal__btn" view="action" color="red">Удалить предмет</UButton>
+        <UButton class="modal__btn" view="action" color="red"
+          >Удалить предмет</UButton
+        >
       </div>
-      <UButton view="close" class="modal__btn-close btn-close_position" />
+      <UButton
+        @click="emit('close')"
+        view="close"
+        class="modal__btn-close btn-close_position"
+      />
     </div>
   </div>
 </template>
