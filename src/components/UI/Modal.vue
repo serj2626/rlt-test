@@ -1,25 +1,23 @@
 <script lang="ts" setup>
 import type { IProduct } from "@/stores/products";
 
-defineProps<{
+const props = defineProps<{
   product: IProduct;
 }>();
 
 const emit = defineEmits<{
   (e: "close"): void;
+  (e: "removeProduct", id: number): void;
 }>();
+
+console.log(props);
 </script>
 
 <template>
   <div class="modal">
     <div class="modal__body">
       <div class="modal__top">
-        <img
-          class="modal__img"
-          src="@/assets/images/one.png"
-          alt=""
-          loading="lazy"
-        />
+        <UImage v-if="product.count" :color="product.color" size="xl" />
       </div>
 
       <div class="modal__main">
@@ -34,9 +32,14 @@ const emit = defineEmits<{
       </div>
 
       <div class="modal__footer">
-        <UButton class="modal__btn" view="action" color="red"
-          >Удалить предмет</UButton
+        <UButton
+          @click="emit('removeProduct', product.id)"
+          class="modal__btn"
+          view="action"
+          color="red"
         >
+          Удалить предмет
+        </UButton>
       </div>
       <UButton
         @click="emit('close')"
