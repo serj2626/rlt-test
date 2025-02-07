@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { isNumber } from "@/utils/validators";
 import { ref } from "vue";
 
 export interface IProduct {
@@ -6,7 +7,6 @@ export interface IProduct {
   name: string;
   count: number;
   color: "green" | "blue" | "peru";
-  status: string;
   cellId?: number;
 }
 
@@ -17,7 +17,6 @@ export const useProductStore = defineStore("product", () => {
       name: "Product 1",
       count: 4,
       color: "green",
-      status: "",
       cellId: 1,
     },
     {
@@ -25,7 +24,6 @@ export const useProductStore = defineStore("product", () => {
       name: "Product 2",
       count: 2,
       color: "peru",
-      status: "",
       cellId: 2,
     },
     {
@@ -33,7 +31,6 @@ export const useProductStore = defineStore("product", () => {
       name: "Product 3",
       count: 5,
       color: "blue",
-      status: "",
       cellId: 3,
     },
   ]);
@@ -68,12 +65,15 @@ export const useProductStore = defineStore("product", () => {
   };
 
   const editCount = (id: number, count: number) => {
-    products.value = products.value.map((p) => {
-      if (p.id === id && p.count >= 0) {
-        return { ...p, count: p.count + count };
-      }
-      return p;
-    });
+    if (isNumber(count)) {
+      products.value = products.value.map((p) => {
+        if (p.id === id) {
+          return { ...p, count: count };
+        }
+        return p;
+      });
+      saveProductsToLocalStorage();
+    }
   };
 
   return {
