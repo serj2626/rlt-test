@@ -1,6 +1,5 @@
-import { computed, ref } from "vue";
-
 import { defineStore } from "pinia";
+import { ref } from "vue";
 
 export interface IProduct {
   id: number;
@@ -44,11 +43,12 @@ export const useProductStore = defineStore("product", () => {
   };
 
   const loadProductsFromLocalStorage = () => {
-    console.log("Данные из локального хранилища загружены");
     const storedProducts = localStorage.getItem("products");
     if (storedProducts) {
+      console.log("Данные из локального хранилища загружены");
       products.value = JSON.parse(storedProducts);
     } else {
+      console.log("Данные из локального хранилища не найдены");
       saveProductsToLocalStorage();
     }
   };
@@ -66,11 +66,21 @@ export const useProductStore = defineStore("product", () => {
     products.value = products.value.filter((p) => p.id !== id);
   };
 
+  const editCount = (id: number, count: number) => {
+    products.value = products.value.map((p) => {
+      if (p.id === id && p.count >= 0) {
+        return { ...p, count: p.count + count };
+      }
+      return p;
+    });
+  };
+
   return {
     products,
     updateCellId,
     saveProductsToLocalStorage,
     loadProductsFromLocalStorage,
     removeProduct,
+    editCount,
   };
 });
