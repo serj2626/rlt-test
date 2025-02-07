@@ -27,12 +27,16 @@ function dragOnstart(event: DragEvent, item: IProduct) {
     draggable="true"
     @dragstart="dragOnstart($event, product)"
   >
-    <div class="cell__body">
+    <span v-if="product?.count" class="cell__count cell__count_position">{{
+      product?.count
+    }}</span>
+    <UImage v-if="product.count" :color="product.color" size="sm" />
+    <!-- <div class="cell__body">
       <div :class="{ [`cell_${product?.color}`]: product?.color }"></div>
       <span v-if="product?.count" class="cell__count cell__count_position">{{
         product?.count
       }}</span>
       <div :class="{ [`cell_${product?.color}-top`]: product?.color }"></div>
-    </div>
+    </div> -->
   </div>
 </template>
