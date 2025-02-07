@@ -84,6 +84,7 @@ const imageSize = computed(() => {
   top: 0;
   right: 0;
   backdrop-filter: blur(12px);
+  box-shadow: -1px 1px 10px rgba(100, 97, 97, 0.336);
 }
 
 .image__bot {
