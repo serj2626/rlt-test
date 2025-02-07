@@ -59,10 +59,15 @@ export const useProductStore = defineStore("product", () => {
     });
   };
 
+  const removeProduct = (id: number) => {
+    products.value = products.value.filter((p) => p.id !== id);
+  };
+
   return {
     products,
     updateCellId,
     saveProductsToLocalStorage,
     loadProductsFromLocalStorage,
+    removeProduct,
   };
 });
