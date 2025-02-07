@@ -10,12 +10,17 @@ const currentProduct = ref<IProduct | null>(null);
 
 const store = useProductStore();
 const { products } = storeToRefs(store);
-const { updateCellId, saveProductsToLocalStorage } = store;
+const { updateCellId, saveProductsToLocalStorage, removeProduct } = store;
 const cells = ref([...Array(25).keys()].map((x) => x + 1));
 
 function selectProduct(item: IProduct) {
   currentProduct.value = item;
   showModal.value = true;
+}
+
+function deleteProduct(id: number) {
+  removeProduct(id);
+  showModal.value = false;
 }
 
 function onDrop(event: DragEvent, cellId: number) {
@@ -43,6 +48,11 @@ function onDrop(event: DragEvent, cellId: number) {
         @select-product="selectProduct"
       />
     </div>
-    <UModal @close="showModal = false" v-if="showModal" :product="currentProduct" />
+    <UModal
+      @close="showModal = false"
+      @remove-product="deleteProduct"
+      v-if="showModal"
+      :product="currentProduct"
+    />
   </section>
 </template>
