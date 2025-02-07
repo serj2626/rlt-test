@@ -1,5 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const count = defineModel('count')
+</script>
 
 <template>
-  <input type="search" class="input" placeholder="Введите количество" />
+  <input
+    v-model="count"
+    class="input"
+    placeholder="Введите количество"
+  />
 </template>
