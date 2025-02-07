@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { useProductStore } from "../stores/products";
 import { storeToRefs } from "pinia";
+import CellDetail from "./CellDetail.vue";
 
 const { products } = storeToRefs(useProductStore());
 const cells = ref([...Array(25).keys()].map((x) => x + 1));
@@ -28,33 +29,31 @@ function onDrop(event: DragEvent, cellId: number) {
 </script>
 
 <template>
-  <div class="cell-list">
+  <section class="products">
     <div
       v-for="(cell, index) in cells"
       :key="index"
-      class="cell-list__item"
+      class="cell"
       droppable="true"
       @dragover.prevent
       @dragenter.prevent
       @drop="onDrop($event, cell)"
     >
-      {{ cell }}
-      <div v-for="product in products" :key="product.id">
-        {{ product }}
-      </div>
+      <CellDetail :product="products.find((p) => p.cellId === cell)" />
     </div>
-  </div>
+  </section>
 </template>
 
 <style>
-.cell-list {
+.products {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   border-radius: var(--border-radius-block);
   overflow: hidden;
 }
 
-.cell-list__item {
+.cell {
+  position: relative;
   width: 100%;
   height: 100px;
   border: var(--border);
