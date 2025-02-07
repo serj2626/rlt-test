@@ -1,23 +1,31 @@
 <script lang="ts" setup>
 import type { IProduct } from "@/stores/products";
+import { ref } from "vue";
 
-const props = defineProps<{
+defineProps<{
   product: IProduct;
 }>();
+
+const count = ref('');
 
 const emit = defineEmits<{
   (e: "close"): void;
   (e: "removeProduct", id: number): void;
+  (e: "editCount", item: { id: number; count: number }): void;
 }>();
 
-console.log(props);
 </script>
 
 <template>
   <div class="modal">
     <div class="modal__body">
       <div class="modal__top">
-        <UImage v-if="product.count" :color="product.color" size="xl" />
+        <UImage
+          v-if="product.count"
+          :color="product.color"
+          size="xl"
+          class="modal__image"
+        />
       </div>
 
       <div class="modal__main">
@@ -31,7 +39,7 @@ console.log(props);
         </div>
       </div>
 
-      <div class="modal__footer">
+      <div v-if="product.count === 0" class="modal__footer">
         <UButton
           @click="emit('removeProduct', product.id)"
           class="modal__btn"
@@ -41,6 +49,33 @@ console.log(props);
           Удалить предмет
         </UButton>
       </div>
+      <div v-else class="modal__footer-actions">
+        <UInput v-model:count="count" />
+        <div class="modal__actions">
+          <UButton
+            @click="emit('close')"
+            class="modal__actions-btn"
+            view="action"
+            color="white"
+          >
+            Отмена
+          </UButton>
+          <UButton
+            @click="
+              emit('editCount', {
+                id: product.id,
+                count: +count,
+              })
+            "
+            class="modal__actions-btn"
+            view="action"
+            color="red"
+          >
+            Подтвердить
+          </UButton>
+        </div>
+      </div>
+
       <UButton
         @click="emit('close')"
         view="close"
