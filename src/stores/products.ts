@@ -44,9 +44,12 @@ export const useProductStore = defineStore("product", () => {
   };
 
   const loadProductsFromLocalStorage = () => {
+    console.log("Данные из локального хранилища загружены");
     const storedProducts = localStorage.getItem("products");
     if (storedProducts) {
       products.value = JSON.parse(storedProducts);
+    } else {
+      saveProductsToLocalStorage();
     }
   };
 
