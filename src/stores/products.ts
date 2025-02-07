@@ -64,6 +64,7 @@ export const useProductStore = defineStore("product", () => {
 
   const removeProduct = (id: number) => {
     products.value = products.value.filter((p) => p.id !== id);
+    saveProductsToLocalStorage();
   };
 
   const editCount = (id: number, count: number) => {
