@@ -13,21 +13,3 @@
   border-radius: var(--border-radius-block);
   border: var(--border);
 }
-
-
-@mixin color {
-  position: absolute;
-  bottom: 23px;
-  left: 26px;
-  width: 48px;
-  height: 48px;
-}
-
-@mixin color-top {
-  position: absolute;
-  top: 23px;
-  left: 32px;
-  width: 48px;
-  height: 48px;
-  backdrop-filter: blur(12px);
-}
