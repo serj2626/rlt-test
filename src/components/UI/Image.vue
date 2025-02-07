@@ -40,7 +40,10 @@ const imageSize = computed(() => {
 <template>
   <div
     class="image"
-    :class="{ image_position: size === 'sm' }"
+    :class="{
+      image_position: size === 'sm',
+      ['image_margin-auto']: size === 'xl',
+    }"
     :style="boxStyle"
   >
     <div class="image__body">
@@ -66,7 +69,7 @@ const imageSize = computed(() => {
   transform: translate(-50%, -50%);
 }
 .image_margin-auto {
-  margin-left: 41px;
+  margin-left: 45px;
 }
 
 .image__body {
