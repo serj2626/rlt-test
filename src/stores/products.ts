@@ -39,6 +39,17 @@ export const useProductStore = defineStore("product", () => {
     },
   ]);
 
+  const saveProductsToLocalStorage = () => {
+    localStorage.setItem("products", JSON.stringify(products.value));
+  };
+
+  const loadProductsFromLocalStorage = () => {
+    const storedProducts = localStorage.getItem("products");
+    if (storedProducts) {
+      products.value = JSON.parse(storedProducts);
+    }
+  };
+
   const updateCellId = (itemId: number, cellId: number) => {
     products.value = products.value.map((p) => {
       if (p.id === itemId) {
@@ -48,5 +59,10 @@ export const useProductStore = defineStore("product", () => {
     });
   };
 
-  return { products, updateCellId };
+  return {
+    products,
+    updateCellId,
+    saveProductsToLocalStorage,
+    loadProductsFromLocalStorage,
+  };
 });
