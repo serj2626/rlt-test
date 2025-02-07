@@ -5,12 +5,18 @@ import { useProductStore } from "../stores/products";
 import { storeToRefs } from "pinia";
 import CellDetail from "./CellDetail.vue";
 
+interface IEditCount {
+  id: number;
+  count: number;
+}
+
 const showModal = ref(false);
 const currentProduct = ref<IProduct | null>(null);
 
 const store = useProductStore();
 const { products } = storeToRefs(store);
-const { updateCellId, saveProductsToLocalStorage, removeProduct } = store;
+const { updateCellId, saveProductsToLocalStorage, removeProduct, editCount } =
+  store;
 const cells = ref([...Array(25).keys()].map((x) => x + 1));
 
 function selectProduct(item: IProduct) {
@@ -20,6 +26,11 @@ function selectProduct(item: IProduct) {
 
 function deleteProduct(id: number) {
   removeProduct(id);
+  showModal.value = false;
+}
+
+function editCountProduct(data: IEditCount) {
+  editCount(data.id, data.count);
   showModal.value = false;
 }
 
@@ -51,6 +62,7 @@ function onDrop(event: DragEvent, cellId: number) {
     <UModal
       @close="showModal = false"
       @remove-product="deleteProduct"
+      @edit-count="editCountProduct"
       v-if="showModal"
       :product="currentProduct"
     />
