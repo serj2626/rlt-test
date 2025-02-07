@@ -38,7 +38,11 @@ const imageSize = computed(() => {
 </script>
 
 <template>
-  <div class="image" :style="boxStyle">
+  <div
+    class="image"
+    :class="{ image_position: size === 'sm' }"
+    :style="boxStyle"
+  >
     <div class="image__body">
       <div
         class="image__top"
@@ -55,11 +59,14 @@ const imageSize = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.image {
+.image_position {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.image_margin-auto {
+  margin-left: 41px;
 }
 
 .image__body {
@@ -73,7 +80,6 @@ const imageSize = computed(() => {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: rgba(255, 95, 15, 0.704);
   backdrop-filter: blur(12px);
 }
 
