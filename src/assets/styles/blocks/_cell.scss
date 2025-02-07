@@ -33,33 +33,3 @@
   bottom: 0;
   right: 0;
 }
-
-.cell_green {
-  @include color;
-  background-color: #7faa65;
-}
-
-.cell_green-top {
-  @include color-top;
-  background-color: rgba(184, 217, 152, 0.035);
-}
-
-.cell_peru {
-  @include color();
-  background-color: #aa9765;
-}
-
-.cell_peru-top {
-  @include color-top;
-  background-color: rgba(217, 187, 152, 0.035);
-}
-
-.cell_blue {
-  @include color;
-  background-color: #656caa;
-}
-
-.cell_blue-top {
-  @include color-top;
-  background-color: rgba(116, 128, 237, 0.035);
-}
