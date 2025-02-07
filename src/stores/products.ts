@@ -39,5 +39,14 @@ export const useProductStore = defineStore("product", () => {
     },
   ]);
 
-  return { products };
+  const updateCellId = (itemId: number, cellId: number) => {
+    products.value = products.value.map((p) => {
+      if (p.id === itemId) {
+        return { ...p, cellId };
+      }
+      return p;
+    });
+  };
+
+  return { products, updateCellId };
 });
