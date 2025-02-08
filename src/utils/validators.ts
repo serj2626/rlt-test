@@ -1,5 +1,5 @@
 function isNumber<T>(value: T): boolean {
-  return typeof value === "number" && !isNaN(value) && value > 0;
+  return typeof value === "number" && !isNaN(value);
 }
 
 export { isNumber };
