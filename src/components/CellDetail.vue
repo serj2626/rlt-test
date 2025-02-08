@@ -17,8 +17,6 @@ function dragOnstart(event: DragEvent, item: IProduct) {
     event.dataTransfer.setData("itemId", JSON.stringify(item.id));
   }
 }
-
-console.log("cellidetail", props.product);
 </script>
 
 <template>
