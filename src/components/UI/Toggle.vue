@@ -12,9 +12,10 @@ const { changeMode } = store;
       class="checkbox__inp"
       type="checkbox"
       id="checkbox"
-      @click="changeMode"
+      :checked="mode"
+      @change="changeMode"
     />
-    <span class="checkbox__inner">{{ modeTitle }} {{ mode }}</span>
+    <span class="checkbox__inner">{{ modeTitle }}</span>
   </label>
 </template>
 
@@ -22,8 +23,8 @@ const { changeMode } = store;
 .checkbox {
   display: inline-block;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 10px;
+  left: 20px;
 }
 
 .checkbox__inp {
@@ -37,7 +38,7 @@ const { changeMode } = store;
 .checkbox__inner {
   display: inline-flex;
   position: relative;
-  color: white;
+  color: rgb(5, 188, 20);
   font-size: 18px;
   padding: 8px;
   padding-left: 74px;
