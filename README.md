@@ -1,6 +1,37 @@
-# rlt
+#  Выполненное тестовое задание на должность "Frontend Developer"
 
-This template should help get you started developing with Vue 3 in Vite.
+
+
+## Инструменты
+* Vue3
+* SCSS
+* Vite
+* Pinia
+
+## Задачи
+* Создать проект
+* Сверстать макет
+* Создать собственные компоненты
+
+
+
+## Установка
+
+
+## Структура проекта
+
+
+## Запуск
+
+
+## Сборка
+
+
+## Поддержка
+
+
+## Рекомендуемые настройки
+
 
 ## Recommended IDE Setup
 
