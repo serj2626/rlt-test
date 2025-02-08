@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "deploy": "gh-pages -d dist",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
+    "homepage": "https://serj2626.github.io/rlt-test/",
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "@types/node": "^22.10.7",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "gh-pages": "^6.3.0",
     "npm-run-all2": "^7.0.2",
     "sass": "^1.83.4",
     "typescript": "~5.7.3",
