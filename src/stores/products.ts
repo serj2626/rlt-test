@@ -12,7 +12,6 @@ export interface IProduct {
 }
 
 export const useProductStore = defineStore("product", () => {
-  // const mode = ref<"dark" | "light">("dark");
   const mode = ref<boolean>(false);
   const products = ref<IProduct[]>([
     {
@@ -47,6 +46,11 @@ export const useProductStore = defineStore("product", () => {
 
   const changeMode = () => {
     mode.value = !mode.value;
+    if (mode.value) {
+      document.body.classList.add("light");
+    } else {
+      document.body.classList.remove("light");
+    }
     saveModeToLocalStorage();
   };
   function saveModeToLocalStorage() {
@@ -56,12 +60,10 @@ export const useProductStore = defineStore("product", () => {
   function loadModeFromLocalStorage() {
     const storedMode = localStorage.getItem("mode");
     if (storedMode) {
-      console.log("Данные из локального хранилища загружены");
-      // mode.value = storedMode as "dark" | "light";
-      // mode.value = storedMode as "dark" | "light";
+      console.log("Данные режима из локального хранилища загружены");
       mode.value = JSON.parse(storedMode);
     } else {
-      console.log("Данные из локального хранилища не найдены");
+      console.log("Данные режима из локального хранилища не найдены");
       saveModeToLocalStorage();
     }
   }
