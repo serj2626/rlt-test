@@ -7,9 +7,10 @@ import { onMounted } from "vue";
 import { useProductStore } from "./stores/products";
 
 const store = useProductStore();
-const { loadProductsFromLocalStorage } = store;
+const { loadProductsFromLocalStorage, loadModeFromLocalStorage } = store;
 
 onMounted(() => {
+  loadModeFromLocalStorage();
   loadProductsFromLocalStorage();
 });
 </script>
@@ -21,5 +22,6 @@ onMounted(() => {
       <CellList />
     </main>
     <Footer />
+    <UToggle />
   </div>
 </template>
