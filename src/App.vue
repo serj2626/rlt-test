@@ -11,6 +11,9 @@ const { loadProductsFromLocalStorage, loadModeFromLocalStorage } = store;
 
 onMounted(() => {
   loadModeFromLocalStorage();
+  if (store.mode) {
+    document.body.classList.add("light");
+  }
   loadProductsFromLocalStorage();
 });
 </script>
