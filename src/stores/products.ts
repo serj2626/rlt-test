@@ -13,6 +13,7 @@ export interface IProduct {
 
 export const useProductStore = defineStore("product", () => {
   const mode = ref<boolean>(false);
+  const zoom = ref<number>(1);
   const products = ref<IProduct[]>([
     {
       id: 1,
@@ -43,6 +44,14 @@ export const useProductStore = defineStore("product", () => {
     }
     return "Включить светлый режим";
   });
+
+  const changeZoom = (value: number) => {
+    zoom.value = value;
+    const container = document.querySelector(".container");
+    if (container) {
+      (container as HTMLElement).style.transform = `scale(${zoom.value})`;
+    }
+  };
 
   const changeMode = () => {
     mode.value = !mode.value;
@@ -112,6 +121,8 @@ export const useProductStore = defineStore("product", () => {
     products,
     mode,
     modeTitle,
+    zoom,
+    changeZoom,
     changeMode,
     updateCellId,
     saveProductsToLocalStorage,
