@@ -7,6 +7,9 @@ body {
   background-color: var(--color-bg);
   cursor: url("../icons/cursor.svg"), auto;
 }
+.light {
+  background-color: rgb(233, 214, 214);
+}
 
 h1,
 h2,
@@ -24,14 +27,14 @@ a {
 .container {
   max-width: 815px;
   // max-width: 1230px;
-  min-height: 100vh;
+  
   padding-inline: 15px;
   margin-inline: auto;
   padding-block: 32px;
 }
 
 .app {
-  margin-top: 100px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 236px 1fr;
   grid-template-rows: 500px 72px;
