@@ -21,7 +21,7 @@ const emit = defineEmits<{
     <div class="modal__body">
       <div class="modal__top">
         <UImage
-          v-if="product.count"
+          v-if="product.count >= 0"
           :color="product.color"
           size="xl"
           class="modal__image"

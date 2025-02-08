@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { IProduct } from "@/stores/products";
 
-defineProps<{
+const props = defineProps<{
   product?: IProduct;
 }>();
 
@@ -17,6 +17,8 @@ function dragOnstart(event: DragEvent, item: IProduct) {
     event.dataTransfer.setData("itemId", JSON.stringify(item.id));
   }
 }
+
+console.log("cellidetail", props.product);
 </script>
 
 <template>
@@ -27,11 +29,11 @@ function dragOnstart(event: DragEvent, item: IProduct) {
     draggable="true"
     @dragstart="dragOnstart($event, product)"
   >
-    <span v-if="product?.count" class="cell__count cell__count_position">{{
+    <span v-if="product?.count >= 0" class="cell__count cell__count_position">{{
       product?.count
     }}</span>
     <UImage
-      v-if="product.count"
+      v-if="product.count >= 0"
       :color="product.color"
       size="sm"
       class="cell__image"
