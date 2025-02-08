@@ -1,6 +1,7 @@
+import { computed, ref } from "vue";
+
 import { defineStore } from "pinia";
 import { isNumber } from "@/utils/validators";
-import { ref } from "vue";
 
 export interface IProduct {
   id: number;
@@ -11,6 +12,8 @@ export interface IProduct {
 }
 
 export const useProductStore = defineStore("product", () => {
+  // const mode = ref<"dark" | "light">("dark");
+  const mode = ref<boolean>(false);
   const products = ref<IProduct[]>([
     {
       id: 1,
@@ -35,6 +38,33 @@ export const useProductStore = defineStore("product", () => {
     },
   ]);
 
+  const modeTitle = computed(() => {
+    if (mode.value) {
+      return "Включить темный режим";
+    }
+    return "Включить светлый режим";
+  });
+
+  const changeMode = () => {
+    mode.value = !mode.value;
+    saveModeToLocalStorage();
+  };
+  function saveModeToLocalStorage() {
+    localStorage.setItem("mode", JSON.stringify(mode.value));
+  }
+
+  function loadModeFromLocalStorage() {
+    const storedMode = localStorage.getItem("mode");
+    if (storedMode) {
+      console.log("Данные из локального хранилища загружены");
+      // mode.value = storedMode as "dark" | "light";
+      // mode.value = storedMode as "dark" | "light";
+      mode.value = JSON.parse(storedMode);
+    } else {
+      console.log("Данные из локального хранилища не найдены");
+      saveModeToLocalStorage();
+    }
+  }
   const saveProductsToLocalStorage = () => {
     localStorage.setItem("products", JSON.stringify(products.value));
   };
@@ -78,10 +108,15 @@ export const useProductStore = defineStore("product", () => {
 
   return {
     products,
+    mode,
+    modeTitle,
+    changeMode,
     updateCellId,
     saveProductsToLocalStorage,
     loadProductsFromLocalStorage,
     removeProduct,
     editCount,
+    saveModeToLocalStorage,
+    loadModeFromLocalStorage,
   };
 });
