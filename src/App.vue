@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar.vue";
 
 import { onMounted } from "vue";
 import { useProductStore } from "./stores/products";
+import Zoom from "./components/Zoom.vue";
 
 const store = useProductStore();
 const { loadProductsFromLocalStorage, loadModeFromLocalStorage } = store;
@@ -25,6 +26,7 @@ onMounted(() => {
       <CellList />
     </main>
     <Footer />
-    <UToggle />
   </div>
+  <UToggle />
+  <Zoom />
 </template>
