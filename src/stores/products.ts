@@ -69,10 +69,8 @@ export const useProductStore = defineStore("product", () => {
   function loadModeFromLocalStorage() {
     const storedMode = localStorage.getItem("mode");
     if (storedMode) {
-      console.log("Данные режима из локального хранилища загружены");
       mode.value = JSON.parse(storedMode);
     } else {
-      console.log("Данные режима из локального хранилища не найдены");
       saveModeToLocalStorage();
     }
   }
@@ -83,10 +81,8 @@ export const useProductStore = defineStore("product", () => {
   const loadProductsFromLocalStorage = () => {
     const storedProducts = localStorage.getItem("products");
     if (storedProducts) {
-      console.log("Данные из локального хранилища загружены");
       products.value = JSON.parse(storedProducts);
     } else {
-      console.log("Данные из локального хранилища не найдены");
       saveProductsToLocalStorage();
     }
   };
