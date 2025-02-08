@@ -26,11 +26,18 @@ a {
 
 .container {
   max-width: 815px;
-  // max-width: 1230px;
-  
   padding-inline: 15px;
   margin-inline: auto;
   padding-block: 32px;
+  transform-origin: top left;
+}
+
+.zoom-in {
+  transform: scale(1.2); /* scale up by 20% */
+}
+
+.zoom-out {
+  transform: scale(0.8); /* scale down by 20% */
 }
 
 .app {
