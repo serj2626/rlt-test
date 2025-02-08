@@ -7,6 +7,4 @@ import globalComponents from "@/components/UI/index";
 
 const app = createApp(App);
 
-app.use(createPinia())
-    .use(globalComponents)
-    .mount("#app");
+app.use(createPinia()).use(globalComponents).mount("#app");
